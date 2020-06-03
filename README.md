@@ -19,7 +19,7 @@ above first, and then jump into the source file and take a look!
 
 ## Troubleshooting
 
-JavaFX requires at least JDK11 (see also: [getting started](https://openjfx.io/openjfx-docs/#install-java)).
+JavaFX requires at least JDK11 (see also: [JavaFX getting started](https://openjfx.io/openjfx-docs/#install-java)).
 In order to avoid wasting too much time worrying about minimal versions, I just downloaded the latest OpenJDK
 ([JDK14](https://jdk.java.net/14/) at the time I wrote this), but you may be able to get away with older
 versions.
