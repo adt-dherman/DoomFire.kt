@@ -1,12 +1,13 @@
 # DoomFire.kt
-An app that demonstrates the "Doom Fire renderer" using Kotlin+TornadoFX
+An application that demonstrates the "Doom Fire effect" using Kotlin+TornadoFX
 
 Inspired by Fabien's blog post: https://fabiensanglard.net/doom_fire_psx/
 
 ![Doom Fire GIF](assets/doomfire.gif)
-_The actual app runs much faster than this. I just don't know how to gif._
+_The actual program runs much faster than this. I just don't know how to gif._
 
-Ideally, you should just be able to run this using gradle:
+Ideally, after cloning, you should just be able to navigate into the root folder
+and run the application using gradle:
 
 ```shell
 $ ./gradlew run
@@ -16,16 +17,18 @@ Once running, you can press `space` to toggle the fire source on and off.
 
 The code is relatively lean and written first and foremost with the intention of being readable.
 Check out Fabien's blog post linked above first, and then jump into the source file and take a look!
-The whole thing is less than 200 lines, with a fair bit of it being UI setup a fair bit of which you
-can just skip over.
+The whole thing is less than 200 lines, with a fair bit of it being UI setup that you can just
+gloss over.
 
-The meat of the algorithm is in `DoomFireView#step` which is driven by an `AnimatedTimer` which is
-a class provided by JavaFX.
+The meat of the algorithm is in `DoomFireView#step()` which is driven by an
+[`AnimationTimer`](https://docs.oracle.com/javase/8/javafx/api/javafx/animation/AnimationTimer.html),
+a class provided by JavaFX. `step` updates a buffer which is a 2D array of palette indices, and
+`updateCanvas` converts those pallete indices into actual pixels on the canvas.
 
 ## Troubleshooting
 
 JavaFX requires at least JDK11 (see also: [JavaFX getting started](https://openjfx.io/openjfx-docs/#install-java)).
-In order to avoid wasting too much time worrying about minimal versions, I just downloaded the latest OpenJDK
+In order to avoid wasting too much time worrying about minimal versions, I just downloaded the latest OpenJDK version
 ([JDK14](https://jdk.java.net/14/) at the time of writing this), but you may be able to get away with older
 versions.
 
