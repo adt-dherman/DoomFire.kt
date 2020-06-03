@@ -22,8 +22,12 @@ gloss over.
 
 The meat of the algorithm is in `DoomFireView#step()` which is driven by an
 [`AnimationTimer`](https://docs.oracle.com/javase/8/javafx/api/javafx/animation/AnimationTimer.html),
-a class provided by JavaFX. `step` updates a buffer which is a 2D array of palette indices, and
-`updateCanvas` converts those pallete indices into actual pixels on the canvas.
+a class provided by JavaFX.
+
+`step()` updates a buffer which is a 2D array of palette indices (0 being black, 36 being white,
+and intermediate indices representing a smooth gradient that passes through orange/red). Every time
+`step()` is called, values one row below propogate upward, often decaying into a slightly darker
+color index. `updateCanvas()` converts those pallete indices into actual pixels on the canvas.
 
 ## Troubleshooting
 
