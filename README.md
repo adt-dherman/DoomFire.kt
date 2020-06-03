@@ -3,7 +3,7 @@ A simple Doom Fire renderer using Kotlin+TornadoFX
 
 Inspired by https://fabiensanglard.net/doom_fire_psx/
 
-![Doom Fire Demo](assets/doomfire720.gif)
+![Doom Fire GIF](assets/doomfire.gif)
 
 Kotlin is one of my favorite languages, and I heard a lot of nice things about [TornadoFX](https://tornadofx.io/),
 so after being nudged by Fabien himself, I decided to give porting the doom fire effect over to Kotlin a shot.
