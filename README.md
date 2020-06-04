@@ -4,7 +4,6 @@ An application that demonstrates the "Doom Fire effect" using Kotlin+TornadoFX
 Inspired by Fabien's blog post: https://fabiensanglard.net/doom_fire_psx/
 
 ![Doom Fire GIF](assets/doomfire.gif)
-_The actual program runs much faster than this. I just don't know how to gif._
 
 Ideally, after cloning, you should just be able to navigate into the root folder
 and run the application using gradle:
