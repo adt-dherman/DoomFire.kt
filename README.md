@@ -15,8 +15,9 @@ $ ./gradlew run
 
 Once running, you can press `space` to toggle the fire source on and off.
 
-The code is relatively lean and written first and foremost with the intention of being readable.
-Check out Fabien's blog post linked above first, and then jump into the source file and take a look!
+[The code](src/DoomFireApp.kt) all lives in a single Kotlin file. It's relatively lean and
+written first and foremost with the intention of being readable. My recommendation: check
+out Fabien's blog post linked above first, and then jump into the source file and take a look!
 The whole thing is less than 200 lines, with a fair bit of it being UI setup that you can just
 gloss over.
 
@@ -25,9 +26,10 @@ The meat of the algorithm is in `DoomFireView#step()` which is driven by an
 a class provided by JavaFX.
 
 `step()` updates a buffer which is a 2D array of palette indices (0 being black, 36 being white,
-and intermediate indices representing a smooth gradient that passes through orange/red). Every time
-`step()` is called, values one row below propogate upward, often decaying into a slightly darker
-color index. `updateCanvas()` converts those pallete indices into actual pixels on the canvas.
+and intermediate indices representing a smooth, fiery gradient that passes through orange/red).
+Every time `step()` is called, each pixel checks the row below it and takes its value, often
+decaying into a slightly darker color index (based on a bit of randomness). `updateCanvas()`
+converts those pallete indices into actual pixels on the canvas.
 
 ## Troubleshooting
 
