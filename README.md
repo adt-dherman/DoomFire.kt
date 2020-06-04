@@ -13,7 +13,7 @@ and run the application using gradle:
 $ ./gradlew run
 ```
 
-Once running, you can press `space` to toggle the fire source on and off.
+Once running, you can press `space` to toggle the fire source on and off and `esc` to quit.
 
 [The code](src/DoomFireApp.kt) all lives in a single Kotlin file. It's relatively lean and
 written first and foremost with the intention of being readable. My recommendation: check
