@@ -113,7 +113,10 @@ class DoomFireView : View("DoomFire.kt") {
 
         keyboard {
             addEventHandler(KeyEvent.KEY_PRESSED) {
-                if (it.code == KeyCode.SPACE) toggleFire()
+                when (it.code) {
+                    KeyCode.SPACE -> toggleFire()
+                    KeyCode.ESCAPE -> close()
+                }
             }
         }
     }
@@ -138,9 +141,9 @@ class DoomFireView : View("DoomFire.kt") {
         for (y in 0 until MAX_Y) { // Always leave the last Y line alone, it's the source of the fire
             for (x in 0..MAX_X) {
                 val srcColorIndex = buffer[x, y + 1]
-                var dstColorIndex = 0
+                var dstColorIndex = BLACK_INDEX
                 var xFinal = x
-                if (srcColorIndex != 0) {
+                if (srcColorIndex != BLACK_INDEX) {
                     val decayRandomness = (Random.nextFloat() * 2.0).toInt()
                     val xOffsetRandomness = (Random.nextFloat() * 3.0).toInt() - 1 // Windy to the left
                     dstColorIndex = (srcColorIndex - decayRandomness).coerceIn(BLACK_INDEX, WHITE_INDEX)
@@ -157,7 +160,7 @@ class DoomFireView : View("DoomFire.kt") {
         gc.fillRect(0.0, 0.0, canvas.width, canvas.height)
         for (y in 0..MAX_Y) {
             for (x in 0..MAX_X) {
-                buffer[x, y].takeIf { it != 0 }?.let { colorIndex ->
+                buffer[x, y].takeIf { it != BLACK_INDEX }?.let { colorIndex ->
                     gc.pixelWriter.setColor(x, y, FIRE_PALLETE[colorIndex])
                 }
             }
